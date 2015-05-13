@@ -64,3 +64,7 @@ gem  'the_sortable_tree'
 
 # Enable use of HAML
 gem  'haml-rails'
+
+
+# Required for deployment on Heroku
+gem 'rails_12factor'

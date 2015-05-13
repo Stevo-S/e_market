@@ -1,0 +1,4 @@
+<% simple_form_for @product, html: {class: 'form-horizontal'} do |f| %>
+<%= replacement_html = f.association :location, collection: @locations, input_html: { data: {update_locations: "true", remote: :true, url: "/update_locations"} } %>
+<%= j jquery('#product_location_id').parent.replaceWith('#{replacement_html}') %>
+<%end%>

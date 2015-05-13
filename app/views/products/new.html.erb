@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for @product, html: {class: 'form-horizontal'} do |f| %>
+
+    <%= f.input :product_name %>
+    <%= f.association :category, collection: nested_set_options(Category) {|i| "#{'–' * i.level} #{i.name}" } %>
+    <%= f.association :location, collection: @locations, input_html: { data: {update_locations: "true", remote: :true, url: "/update_locations"} } %>
+  
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :picture, as: :file %>
+
+    <%= f.submit 'Post', class: 'btn btn-default btn-lg' %>
+  <% end %>
+</div>

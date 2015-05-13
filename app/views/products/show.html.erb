@@ -1,0 +1,5 @@
+<div class="container">
+  <h2><%= @product.product_name %></h2>
+  <%= image_tag(@product.picture_url(:thumb).to_s) if @product.picture? %>
+  <p><%= @product.description %></p>
+</div>

@@ -1,0 +1,11 @@
+<%= select_tag :category_id, nested_options(@categories, :selected => Category.last), class: :nested_options %>
+
+<ol class="sortable_tree">{ :data => { :max_levels => 3, :rebuild_url => rebuild_article_categories_url } }
+  <%= build_server_tree @article_categories, :type => :sortable %>
+</ol>
+
+
+
+<ol class="sortable_tree" data-max_levels="5" data-rebuild_url="<%=rebuild_categories_url%>" > 
+  <%=sortable_tree @categories %>
+</ol>

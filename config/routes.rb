@@ -1,4 +1,60 @@
 Rails.application.routes.draw do
+
+  resources :products
+  
+  get 'products/new'
+
+  get 'products/create'
+
+  get 'products/edit'
+
+  get 'products/destroy'
+
+  get 'products/show'
+
+  get 'products/index'
+
+  get 'products/update'
+
+  resources :users
+  
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'static_pages/home'
+
+  get 'static_pages/help'
+
+  get 'static_pages/about'
+
+  get 'static_pages/contact'
+  
+  get 'signup'     => 'users#new'
+  get 'login'      => 'sessions#new'
+  post 'login'     => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  root 'static_pages#home'
+  
+  get    'home'        => 'static_pages#home'
+  get    'about'       => 'static_pages#about'
+  get    'help'       => 'static_pages#help'
+  get    'contact'       => 'static_pages#contact'
+  
+  get 'update_locations'    => 'products#update_locations'
+  
+  resources :categories do
+    collection do
+      get :manage
+
+      # required for Sortable GUI server side actions
+      post :rebuild
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +69,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
 
   # Example resource route with options:
   #   resources :products do

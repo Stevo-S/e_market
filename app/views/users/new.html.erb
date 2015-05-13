@@ -1,0 +1,11 @@
+<div class="container">
+<%=simple_form_for @user, html: {class: 'form-horizontal'} do |f| %>
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :password, as: :password %>
+  <%= f.input :password_confirmation, as: :password %>
+  <%= f.input :profile_picture, as: :file %>
+
+  <%=f.submit 'Sign Up', class: 'btn btn-default btn-lg'%>
+<% end %>
+</div>

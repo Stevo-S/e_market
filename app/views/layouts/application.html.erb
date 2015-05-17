@@ -25,6 +25,9 @@
             <li <%= 'class="active"'.html_safe if current_page?('/home') %> >
               <a href='/home'>Home</a>
             </li>
+            <li <%= 'class="active"'.html_safe if current_page?(products_path) %> >
+              <a href=<%= products_path%>>Browse</a>
+            </li>
             <li <%= 'class="active"'.html_safe if current_page?('/about') %> >
               <a href="/about">About</a>
             </li>

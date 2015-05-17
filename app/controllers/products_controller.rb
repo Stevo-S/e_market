@@ -41,7 +41,24 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    
+    respond_to do |format|
+      if params[:location] 
+        @location = Location.find(params[:location]) 
+        @locations = @location.children
+      else
+        @locations = Location.roots
+      end
+
+      if @location
+        @products = Product.where location_id: @location.descendants.ids
+      else
+        @products = Product.all
+      end
+      
+      format.html 
+      format.js { render partial: 'index'}
+    end
   end
 
   def update

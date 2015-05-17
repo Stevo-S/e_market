@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
     
     if @category.save
       flash[:success] = 'New category successfully created'
-      redirect_to '/categories/manage'
+      redirect_to new_category_path
     else
       flash.now[:danger] = 'Oops. Something went wrong. Could not create new category. Sorry!'
       render 'new'
